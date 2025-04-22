@@ -1,0 +1,281 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #00ff9f;
+  --secondary-color: #ff00ff;
+  --background-color: #0a0a0a;
+  --text-color: #ffffff;
+  --glitch-color: #ff0000;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Navigation Styles */
+.main-nav {
+  @apply fixed top-0 w-full bg-black/80 backdrop-blur-sm z-50;
+  border-bottom: 1px solid var(--primary-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  @apply text-2xl font-bold;
+  color: var(--primary-color);
+  text-shadow: 0 0 10px var(--primary-color);
+}
+
+.nav-links {
+  @apply flex gap-6;
+}
+
+.nav-link {
+  @apply text-lg hover:text-primary transition-colors;
+  color: var(--text-color);
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+  text-shadow: 0 0 5px var(--primary-color);
+}
+
+/* Button Styles */
+.btn {
+  @apply px-6 py-2 rounded-md font-medium transition-all;
+  border: 1px solid var(--primary-color);
+  background: transparent;
+  color: var(--primary-color);
+}
+
+.btn:hover {
+  background: var(--primary-color);
+  color: var(--background-color);
+  box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* Footer Styles */
+.main-footer {
+  @apply mt-20 py-10 px-4;
+  background: rgba(0, 0, 0, 0.8);
+  border-top: 1px solid var(--primary-color);
+}
+
+.footer-content {
+  @apply max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8;
+}
+
+.footer-section h3 {
+  @apply text-xl font-bold mb-4;
+  color: var(--primary-color);
+}
+
+.social-links {
+  @apply flex flex-col gap-2;
+}
+
+.social-link {
+  @apply hover:text-primary transition-colors;
+  color: var(--text-color);
+}
+
+/* Hero Section */
+.hero {
+  @apply min-h-screen flex items-center justify-center relative overflow-hidden;
+  background: linear-gradient(to bottom, var(--background-color), #000);
+}
+
+/* Glitch Effects */
+.glitch {
+  position: relative;
+  animation: glitch 1s linear infinite;
+}
+
+@keyframes glitch {
+  2%, 64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+  4%, 60% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(5deg);
+  }
+}
+
+.glitch:before,
+.glitch:after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch:before {
+  left: 2px;
+  text-shadow: -2px 0 var(--glitch-color);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch:after {
+  left: -2px;
+  text-shadow: -2px 0 var(--secondary-color);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(42px, 9999px, 44px, 0);
+  }
+  5% {
+    clip: rect(12px, 9999px, 59px, 0);
+  }
+  10% {
+    clip: rect(48px, 9999px, 29px, 0);
+  }
+  15.0% {
+    clip: rect(42px, 9999px, 73px, 0);
+  }
+  20% {
+    clip: rect(63px, 9999px, 27px, 0);
+  }
+  25% {
+    clip: rect(34px, 9999px, 55px, 0);
+  }
+  30.0% {
+    clip: rect(86px, 9999px, 73px, 0);
+  }
+  35% {
+    clip: rect(20px, 9999px, 20px, 0);
+  }
+  40% {
+    clip: rect(26px, 9999px, 60px, 0);
+  }
+  45% {
+    clip: rect(25px, 9999px, 66px, 0);
+  }
+  50% {
+    clip: rect(57px, 9999px, 98px, 0);
+  }
+  55.0% {
+    clip: rect(5px, 9999px, 46px, 0);
+  }
+  60.0% {
+    clip: rect(82px, 9999px, 31px, 0);
+  }
+  65% {
+    clip: rect(54px, 9999px, 27px, 0);
+  }
+  70% {
+    clip: rect(28px, 9999px, 99px, 0);
+  }
+  75% {
+    clip: rect(45px, 9999px, 69px, 0);
+  }
+  80% {
+    clip: rect(23px, 9999px, 85px, 0);
+  }
+  85.0% {
+    clip: rect(54px, 9999px, 84px, 0);
+  }
+  90% {
+    clip: rect(45px, 9999px, 47px, 0);
+  }
+  95% {
+    clip: rect(37px, 9999px, 20px, 0);
+  }
+  100% {
+    clip: rect(4px, 9999px, 91px, 0);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(65px, 9999px, 119px, 0);
+  }
+  5% {
+    clip: rect(133px, 9999px, 61px, 0);
+  }
+  10% {
+    clip: rect(119px, 9999px, 14px, 0);
+  }
+  15.0% {
+    clip: rect(64px, 9999px, 61px, 0);
+  }
+  20% {
+    clip: rect(133px, 9999px, 14px, 0);
+  }
+  25% {
+    clip: rect(119px, 9999px, 14px, 0);
+  }
+  30.0% {
+    clip: rect(64px, 9999px, 61px, 0);
+  }
+  35% {
+    clip: rect(133px, 9999px, 14px, 0);
+  }
+  40% {
+    clip: rect(119px, 9999px, 14px, 0);
+  }
+  45% {
+    clip: rect(64px, 9999px, 61px, 0);
+  }
+  50% {
+    clip: rect(133px, 9999px, 14px, 0);
+  }
+  55.0% {
+    clip: rect(119px, 9999px, 14px, 0);
+  }
+  60.0% {
+    clip: rect(64px, 9999px, 61px, 0);
+  }
+  65% {
+    clip: rect(133px, 9999px, 14px, 0);
+  }
+  70% {
+    clip: rect(119px, 9999px, 14px, 0);
+  }
+  75% {
+    clip: rect(64px, 9999px, 61px, 0);
+  }
+  80% {
+    clip: rect(133px, 9999px, 14px, 0);
+  }
+  85.0% {
+    clip: rect(119px, 9999px, 14px, 0);
+  }
+  90% {
+    clip: rect(64px, 9999px, 61px, 0);
+  }
+  95% {
+    clip: rect(133px, 9999px, 14px, 0);
+  }
+  100% {
+    clip: rect(119px, 9999px, 14px, 0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    @apply hidden;
+  }
+  
+  .footer-content {
+    @apply grid-cols-1;
+  }
+  
+  .hero {
+    @apply px-4;
+  }
+} 
