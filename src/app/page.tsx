@@ -30,52 +30,29 @@ export default function Home() {
 
   return (
     <div>
-      {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm">
-        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div 
-              className="relative group cursor-pointer"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              onMouseMove={handleMouseMove}
-            >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-full blur opacity-30 group-hover:opacity-100 transition duration-500"></div>
-              <div className={`relative ${glitchActive ? 'logo-glitch' : ''}`}>
-                <Image
-                  src="/bugs-crii-logo.jpg"
-                  alt="BUGS-CRII Logo"
-                  width={40}
-                  height={40}
-                  className="relative hover:scale-110 transition-transform duration-300 rounded-full bg-black"
-                  style={{ 
-                    mixBlendMode: 'screen',
-                    transform: isHovered ? `perspective(1000px) rotateX(${mousePosition.y}deg) rotateY(${mousePosition.x}deg)` : 'none',
-                    transition: 'transform 0.1s ease-out'
-                  }}
-                />
-                {glitchActive && (
-                  <>
-                    <div className="absolute inset-0 logo-glitch-r" style={{ backgroundImage: `url(/bugs-crii-logo.jpg)` }}></div>
-                    <div className="absolute inset-0 logo-glitch-g" style={{ backgroundImage: `url(/bugs-crii-logo.jpg)` }}></div>
-                    <div className="absolute inset-0 logo-glitch-b" style={{ backgroundImage: `url(/bugs-crii-logo.jpg)` }}></div>
-                  </>
-                )}
-                {isHovered && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full animate-pulse"></div>
-                )}
-              </div>
-            </div>
-            <span className="text-xl font-bold text-primary hover:text-secondary transition-colors duration-300">BUGS-CRII</span>
-          </div>
-          <div className="flex space-x-6">
-            <a href="#" className="nav-link">Home</a>
-            <a href="#" className="nav-link">Music</a>
-            <a href="#" className="nav-link">Community</a>
-            <a href="#" className="nav-link">News</a>
+      {/* Logo */}
+      <div className="fixed top-4 left-4 z-50">
+        <div 
+          className="relative group cursor-pointer"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onMouseMove={handleMouseMove}
+        >
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-full blur opacity-30 group-hover:opacity-100 transition duration-500"></div>
+          <div className={`relative ${glitchActive ? 'logo-glitch' : ''}`}>
+            <Image
+              src="/bugs-crii-logo.jpg"
+              alt="BUGS-CRII Logo"
+              width={40}
+              height={40}
+              className="relative hover:scale-110 transition-transform duration-300 rounded-full bg-black"
+              style={{
+                transform: `rotateX(${mousePosition.y}deg) rotateY(${mousePosition.x}deg)`,
+              }}
+            />
           </div>
         </div>
-      </nav>
+      </div>
 
       {/* Main Content with padding for navbar */}
       <div className="space-y-12 pt-16">

@@ -3,21 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --primary: #00ffff; /* Cyan */
-  --secondary: #00ff00; /* Green */
-  --accent: #ffff00; /* Yellow */
-  --background: #000000;
-  --text: #ffffff;
-  --glitch-1: #00ffff;
-  --glitch-2: #00ff00;
-  --comic-highlight: #ffff00;
-  --comic-accent: #00ffff;
+  --primary: #6366f1;
+  --secondary: #8b5cf6;
+  --accent: #f59e0b;
+  --background: #0f172a;
+  --text: #f8fafc;
+  --glitch-1: #6366f1;
+  --glitch-2: #8b5cf6;
+  --comic-highlight: #f59e0b;
+  --comic-accent: #6366f1;
 }
 
 body {
   background: var(--background);
   color: var(--text);
-  font-family: 'Comic Neue', cursive;
+  font-family: 'Inter', sans-serif;
   overflow-x: hidden;
 }
 
@@ -25,14 +25,14 @@ body {
 .terminal-container {
   position: relative;
   overflow: hidden;
-  border: 3px solid var(--primary);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-  animation: terminalGlow 2s ease-in-out infinite alternate;
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+  animation: terminalGlow 3s ease-in-out infinite alternate;
 }
 
 @keyframes terminalGlow {
-  from { box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); }
-  to { box-shadow: 0 0 30px rgba(0, 255, 0, 0.5); }
+  from { box-shadow: 0 0 15px rgba(99, 102, 241, 0.2); }
+  to { box-shadow: 0 0 25px rgba(139, 92, 246, 0.3); }
 }
 
 .terminal-container::before {
@@ -106,8 +106,11 @@ body {
 
 .nav-link {
   color: var(--text);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
   transition: all 0.3s ease;
   position: relative;
+  font-weight: 500;
 }
 
 .nav-link:hover {
@@ -116,7 +119,7 @@ body {
 
 .nav-link.active {
   color: var(--primary);
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .nav-link.active::after {
@@ -140,39 +143,20 @@ body {
 }
 
 .button {
-  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
-  border-radius: 30px;
-  font-weight: bold;
+  border-radius: 8px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  animation: buttonPulse 2s infinite;
 }
 
-@keyframes buttonPulse {
-  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.7); }
-  50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(0, 255, 0, 0); }
-  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 255, 0); }
-}
-
-.button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: 0.5s;
-}
-
-.button:hover::before {
-  left: 100%;
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
 }
 
 .comic-panel {
@@ -624,22 +608,22 @@ body {
 /* Tab Navigation */
 .tab-button {
   padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   font-weight: 600;
   transition: all 0.3s ease;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(15, 23, 42, 0.8);
   color: var(--text);
-  border: 2px solid transparent;
+  border: 1px solid transparent;
 }
 
 .tab-button:hover {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(15, 23, 42, 0.9);
   border-color: var(--primary);
 }
 
 .tab-button.active {
-  background: linear-gradient(45deg, var(--primary), var(--secondary));
-  color: var(--background);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
   border-color: transparent;
 }
 
@@ -691,12 +675,6 @@ body {
 }
 
 /* Interactive Elements */
-.button {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
 .button::after {
   content: '';
   position: absolute;
@@ -719,39 +697,17 @@ body {
 
 /* Enhanced Card Effects */
 .card {
-  position: relative;
-  overflow: hidden;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
 }
 
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    45deg,
-    transparent 0%,
-    var(--primary) 50%,
-    transparent 100%
-  );
-  opacity: 0;
-  transition: 0.5s;
-}
-
-.card:hover::before {
-  opacity: 0.1;
-  animation: shine 1.5s infinite;
-}
-
-@keyframes shine {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 200% 50%;
-  }
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: 0 8px 16px rgba(99, 102, 241, 0.1);
 }
 
 /* Responsive Design */
@@ -775,16 +731,17 @@ body {
 }
 
 .music-card {
-  background: rgba(0, 0, 0, 0.7);
-  border: 2px solid var(--primary);
-  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 12px;
   padding: 1.5rem;
   transition: all 0.3s ease;
 }
 
 .music-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: 0 8px 16px rgba(99, 102, 241, 0.1);
 }
 
 .music-video-container {
@@ -815,16 +772,17 @@ body {
 }
 
 .community-card {
-  background: rgba(0, 0, 0, 0.7);
-  border: 2px solid var(--secondary);
-  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
   padding: 1.5rem;
   transition: all 0.3s ease;
 }
 
 .community-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+  transform: translateY(-4px);
+  border-color: var(--secondary);
+  box-shadow: 0 8px 16px rgba(139, 92, 246, 0.1);
 }
 
 .community-gallery {
@@ -904,4 +862,19 @@ body {
   .tab-navigation {
     flex-wrap: wrap;
   }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
 } 
